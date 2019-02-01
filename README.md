@@ -1,0 +1,1 @@
+# vagrant-kibana-nginx
