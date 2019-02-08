@@ -1,0 +1,9 @@
+[Unit]
+Description=Spark service
+
+[Service]
+ExecStart=/usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/nginx.conf
+
+[Install]
+WantedBy=multi-user.target
+
