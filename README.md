@@ -5,7 +5,7 @@ Downloading this project you will have elastic stack working environment(filebea
 
 The goal is to send nginx logs to kibana tool. Picture below will give you better overview what this project includes:
 
-![diagram](https://github.com/berchev/vagrant-kibana-nginx/images/servers_diagram.png)
+![](https://github.com/berchev/vagrant-kibana-nginx/blob/master/images/servers_diagram.png)
 
 ## Requirements
 - All instructions are tested on Ubuntu 18.04
@@ -32,7 +32,11 @@ The goal is to send nginx logs to kibana tool. Picture below will give you bette
 - Open new browser tab and type: `localhost:56011` (Port 5601 from KIBANA is forwarded to port 56011 on your machine)
 - You will see following:
 
-#Pictures#
+![](https://github.com/berchev/vagrant-kibana-nginx/blob/master/images/kibana1.png)
+
+![](https://github.com/berchev/vagrant-kibana-nginx/blob/master/images/kibana2.png)
+
+![](https://github.com/berchev/vagrant-kibana-nginx/blob/master/images/kibana3.png)
 
 ## In addition
 - if you need to connect to KIBANA for any reason: `vagrant ssh kibana`
