@@ -59,14 +59,6 @@ apt-get update
   systemctl enable kibana && systemctl start kibana
 }
 
-# Filebeat Instalation and setup
-#[ -d "/etc/filebeat"] || {
-#  apt install filebeat -y
-#  mv /etc/filebeat/filebeat.yml /etc/filebeat/filebeat.yml.bak
-#  cp /vagrant/conf/filebeat.yml /etc/filebeat/filebeat.yml
-  #cp /vagrant/conf/filebeat.yml /etc/filebeat/modules.d/nginx.yml
-#  systemctl start filebeat && systemctl enable filebeat
-#}
 
 # Install and configure logstash + GeoIP
 [ -d "/etc/logstash" ] || {
