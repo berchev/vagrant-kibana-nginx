@@ -14,6 +14,8 @@ which apt-add-repository || {
   apt-get install -y software-properties-common
 }
 
+# add-apt-repository command is looking for library named "apt_pkg".
+# I have different library and this is caused by different python version used by me.
 [ -f "/usr/lib/python3/dist-packages/apt_pkg.so" ] || {
   cp /usr/lib/python3/dist-packages/apt_pkg\.*\.so /usr/lib/python3/dist-packages/apt_pkg.so
 }
@@ -34,28 +36,12 @@ apt-get install -y apt-transport-https
 echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list
 apt-get update
 
-# Install and configure logstash
-#[ -d "/etc/logstash" ] || {
-#  apt-get install -y logstash
-#  cp /etc/logstash/logstash.yml /etc/logstash/logstash.yml.bak
-  #echo 'path.data: /var/lib/logstash' | sudo tee -a /etc/logstash/logstash.yml
-  #echo 'path.config: /etc/logstash/conf.d' | sudo tee -a /etc/logstash/logstash.yml
-  #echo 'path.logs: /var/log/logstash' | sudo tee -a /etc/logstash/logstash.yml
-#  cp /vagrant/conf/nginx.conf /etc/logstash/conf.d/
-#  systemctl start logstash && systemctl enable logstash
-#}
-
-# Start gathering data with logstash, based on /etc/logstash/conf.d/nginx.conf
-#chmod +x /vagrant/conf/logstash_process.service
-#cp /vagrant/conf/logstash_process.service /etc/systemd/system/
-#systemctl start logstash_process.service && systemctl enable logstash_process.service
 
 # Filebeat Instalation and setup
 [ -d "/etc/filebeat" ] || {
   apt install filebeat -y
   mv /etc/filebeat/filebeat.yml /etc/filebeat/filebeat.yml.bak
   cp /vagrant/conf/filebeat.yml /etc/filebeat/filebeat.yml
-  #cp /vagrant/conf/filebeat.yml /etc/filebeat/modules.d/nginx.yml
   systemctl start filebeat && systemctl enable filebeat
 }
 
